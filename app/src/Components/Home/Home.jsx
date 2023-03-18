@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.scss";
+import axios from "axios";
+
+const apiKey = "0c3b5bdc594113fd74bd533ce2f43aa0";
+const url = "https://api.themoviedb.org/3";
+const upcoming = "upcoming";
 
 const Card = ({ img }) => {
   return (
@@ -21,8 +26,8 @@ const Row = ({
     <div className="row">
       <h2>{title}</h2>
       <div>
-        {arr.map((item) => {
-          <Card img={item.img} />;
+        {arr.map((item, index) => {
+          <Card key={index} img={item.img} />;
         })}
       </div>
     </div>
@@ -30,6 +35,15 @@ const Row = ({
 };
 
 const Home = () => {
+  useEffect(() => {
+    const fetchUpcoming = async () => {
+      const {
+        data: { results },
+      } = await axios.get(`${url}/movie/${upcoming}?api_key=${apiKey}`);
+      console.log(results);
+    };
+    fetchUpcoming();
+  }, []);
   return (
     <section className="home">
       <div className="banner"></div>
