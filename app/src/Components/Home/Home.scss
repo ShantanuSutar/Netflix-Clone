@@ -104,6 +104,10 @@ $bg: black;
   display: flex;
   height: 100px;
   background-color: $bg;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
   > a {
     color: black;
     background-color: white;
