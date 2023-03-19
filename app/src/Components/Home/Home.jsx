@@ -85,7 +85,10 @@ const Home = () => {
             ? `url(${`${imgUrl}/${popularMovies[0].poster_path}`})`
             : "none",
         }}
-      ></div>
+      >
+        {popularMovies[0] && <h1>{popularMovies[0].original_title}</h1>}
+        {popularMovies[0] && <p>{popularMovies[0].overview}</p>}
+      </div>
       <Row title={"Upcoming Movies"} arr={upcomingMovies} />
       <Row title={"Now Playing"} arr={nowPLayingMovies} />
       <Row title={"Popular on Netflix"} arr={popularMovies} />

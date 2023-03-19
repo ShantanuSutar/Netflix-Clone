@@ -6,6 +6,9 @@ $bg: black;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   &::after {
     content: "";
     width: 100%;
@@ -13,6 +16,20 @@ $bg: black;
     position: absolute;
     background: $bg;
     opacity: 0.4;
+  }
+  > h1,
+  p {
+    color: white;
+    font-size: 3rem;
+    width: 50%;
+    z-index: 10;
+  }
+  > p {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    font-weight: 300;
+    margin-top: 1rem;
   }
 }
 
